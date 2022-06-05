@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { APIClientProvider } from './network/Api';
+import { QueryClientProvider } from "react-query";
+import { queryClient } from './network/queryClient';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <APIClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <App/>
+      </QueryClientProvider>
+    </APIClientProvider>
   </React.StrictMode>
 );
 
