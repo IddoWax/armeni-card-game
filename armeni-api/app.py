@@ -8,6 +8,10 @@ def index():
     return {'hello': 'world'}
 
 
+@app.route('/test_api', cors=True)
+def test_api():
+    return [{'name':'company1','number': 100}, {'name':'company2','number': 200}]
+
 # The view function above will return {"hello": "world"}
 # whenever you make an HTTP GET request to '/'.
 #
