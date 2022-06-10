@@ -1,16 +1,10 @@
 import './App.css';
 import React from 'react';
-import useTestData from './network/queryHooks/useTestData';
+import GameApi from './screens/Game/GameApi'
 
 const App = () => {
-  const data = useTestData();
   return(
-    <div>
-      <h1>Hello World</h1>
-      <p>{JSON.stringify(data)}</p>
-    </div>
+   <GameApi/>
   )
 };
 export default App;
-
-
