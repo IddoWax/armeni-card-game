@@ -1,14 +1,27 @@
-import { useState, useEffect } from "react";
-
-// React component responsible for managing an Armeni game
-const Game = (data) => {
-  console.log('Game',data);
+import Grid from '@mui/material/Grid';
+import React from 'react';
+import Player from './Player'
+export default class Game extends React.Component {
+  constructor(props) {
+    super();
+    /*
+    this.state = {
+      player : props.data.player,
+      otherPlayers : props.otherPlayers,
+      cardsInDeck: props.cardsInDeck
+    }
+    */
+   this.state = {
+     players: [{name:'Orin'}, {name:'Iddo'}]
+   };
+  }
+  render() {
     return (
-        <div>
-        <h1>Hello World</h1>
-        <p>{JSON.stringify(data.data)}</p>
-      </div>
+      <Grid container alignContent='center' sx={{backgroundColor: 'primary.dark'}}> 
+        <Grid item>
+          {this.state.players.map(player =><Player name={player.name}/>)}
+        </Grid>
+      </Grid>
     );
+  }
 }
-
-export default Game;
